@@ -2,7 +2,7 @@ name: Scheduled run
 on:
   workflow_dispatch:
    schedule:
-     - cron: '0 */1 * * *'
+     - cron: '0 */4 * * *'
 env:
   INSTARGRAM_USERNAME: ${{ secrets.INSTARGRAM_USERNAME }}
   INSTARGRAM_PASSWORD: ${{ secrets.INSTARGRAM_PASSWORD }}
