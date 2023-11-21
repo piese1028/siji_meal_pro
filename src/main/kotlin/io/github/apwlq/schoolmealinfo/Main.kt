@@ -15,16 +15,9 @@ fun main(args: Array<String>) {
 fun publish() {
     println("오늘 밥 뭐지...")
     val client = login()
-    val prop = Properties()
-    val file = File("assets/config/drawing.properties")
-    FileInputStream(file).use { fileInputStream ->
-        InputStreamReader(fileInputStream, "UTF-8").use { inputStreamReader ->
-            prop.load(inputStreamReader)
-        }
-    }
     client.actions()
         .story()
-        .uploadPhoto(genImage("${prop["lunch"].toString()}\n${getLunch()}","${prop["dinner"].toString()}\n${getDinner()}"))
+        .uploadPhoto(genImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}"))
         .thenAccept {
             println(
                 """
