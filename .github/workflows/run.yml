@@ -5,8 +5,8 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
-#    runs-on: self-hosted
+    # runs-on: ${{ matrix.os }}
+    runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
         with:
           title: "jar archive"
           automatic_release_tag: "latest"
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.TOKEN }}"
           files: |
             build/libs/*.jar
           prerelease: false
