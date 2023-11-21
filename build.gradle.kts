@@ -24,7 +24,7 @@ tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
 tasks.withType<Jar> {
     manifest {
         attributes(mapOf(
-            "Main-Class" to "io.github.apwlq.schoolmealinfo.Main"
+            "Main-Class" to "io.github.apwlq.schoolmealinfo.MainKt"
         ))
     }
 }
