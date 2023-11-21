@@ -22,7 +22,7 @@ jobs:
           tarBall: false
           zipBall: false
           out-file-path: "${{ github.workspace }}/download/"
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.TOKEN }}"
       - uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
