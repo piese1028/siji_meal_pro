@@ -17,7 +17,7 @@ fun publish() {
     val client = login()
     client.actions()
         .story()
-        .uploadPhoto(genImage(getLunch(), getDinner()))
+        .uploadPhoto(genImage("${prop["lunch"].toString()}\n${getLunch()}","${prop["dinner"].toString()}\n${getDinner()}"))
         .thenAccept {
             println(
                 """
