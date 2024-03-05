@@ -30,7 +30,7 @@ tasks.withType<Jar> {
 }
 
 group = "io.github.apwlq"
-version = "1.0-SNAPSHOT"
+version = "1.1-bsdg"
 
 repositories {
     mavenCentral()

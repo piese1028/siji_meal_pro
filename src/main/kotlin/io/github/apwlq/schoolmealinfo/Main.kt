@@ -13,11 +13,11 @@ fun main(args: Array<String>) {
 }
 
 fun publish() {
-    println("오늘 밥 뭐지...")
+    println("publishing...")
     val client = login()
     client.actions()
-        .story()
-        .uploadPhoto(genImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}"))
+        .timeline()
+        .uploadPhoto(genImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}"),"(${getNowDate()}) 의 급식")
         .thenAccept {
             println(
                 """

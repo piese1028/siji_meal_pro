@@ -1,12 +1,12 @@
-name: Scheduled run
+name: Insta Uploader
 on:
   workflow_dispatch:
    schedule:
-     - cron: '0 */4 * * *'
+     - cron: '10 15 * * *'
 env:
   INSTARGRAM_USERNAME: ${{ secrets.INSTARGRAM_USERNAME }}
   INSTARGRAM_PASSWORD: ${{ secrets.INSTARGRAM_PASSWORD }}
-  OTP_SECRET: ${{ secrets.OTP_SECRET }}
+#  OTP_SECRET: ${{ secrets.OTP_SECRET }}
   SCHOOL_NAME: ${{ secrets.SCHOOL_NAME }}
   SCHOOL_REGION: ${{ secrets.SCHOOL_REGION }}
 jobs:

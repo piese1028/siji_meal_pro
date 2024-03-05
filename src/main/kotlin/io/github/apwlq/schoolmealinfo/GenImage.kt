@@ -12,7 +12,7 @@ import javax.imageio.ImageIO
 
 fun genImage(lunch: String, dinner: String): File {
     val png = File("output/dist.png")
-    AddTextToImg.execute(File("assets/image/image.png"), lunch, dinner, png)
+    AddTextToImg.execute(File("assets/image/image.png"), lunch, dinner, png, date = getNowDate().split("")[1] + getNowDate().split("")[2] + getNowDate().split("")[3] + getNowDate().split("")[4] + "." + getNowDate().split("")[5] + getNowDate().split("")[6] + "." + getNowDate().split("")[7] + getNowDate().split("")[8] + ".")
     val jpg = File("output/dist.jpg")
     pngToJpg(png, jpg)
     return jpg

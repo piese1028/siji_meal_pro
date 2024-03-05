@@ -1,7 +1,10 @@
 package io.github.apwlq.schoolmealinfo
 
+import java.awt.image.BufferedImage
 import java.io.*
 import java.util.*
+import javax.imageio.ImageIO
+import kotlin.system.exitProcess
 
 
 fun main()  {
@@ -13,6 +16,5 @@ fun main()  {
             prop.load(inputStreamReader)
         }
     }
-    genImage("${prop["lunch"].toString()}\n${getLunch()}","${prop["dinner"].toString()}\n${getDinner()}")
+    genImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}")
 }
-//🗕🗗🗙

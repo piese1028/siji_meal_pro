@@ -19,6 +19,7 @@ fun getTOTPCode(secretKey: String?): String? {
     return TOTP.getOTP(hexKey)
 }
 
+
 fun login(): IGClient {
     val inputCode = Callable { getTOTPCode(System.getenv("OTP_SECRET")) }
     val client = IGClient.builder()
