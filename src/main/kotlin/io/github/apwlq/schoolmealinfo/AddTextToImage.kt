@@ -92,6 +92,7 @@ object AddTextToImgByTimeline {
                         + ind * prop["draw-leading"].toString().toInt()
             )
         }
+        g.color = hex2Rgb(prop["date-color"].toString())
         date.split("\n").forEachIndexed { ind, str ->
             g.drawString(
                 str,
