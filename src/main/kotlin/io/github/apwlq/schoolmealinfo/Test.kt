@@ -8,13 +8,7 @@ import kotlin.system.exitProcess
 
 
 fun main()  {
-    print("[점심]\n${getLunch()}\n[저녁]\n${getDinner()}")
-    val prop = Properties()
-    val file = File("assets/config/drawing.properties")
-    FileInputStream(file).use { fileInputStream ->
-        InputStreamReader(fileInputStream, "UTF-8").use { inputStreamReader ->
-            prop.load(inputStreamReader)
-        }
-    }
-    genImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}")
+
+    genStoryImage("[점심]\n${getLunch()}\n\n[저녁]\n${getDinner()}")
+    genTimelineImage("[점심]\n${getLunch()}","[저녁]\n${getDinner()}")
 }

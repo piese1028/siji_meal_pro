@@ -13,35 +13,30 @@ import java.util.Properties
 import javax.imageio.ImageIO
 
 
-object AddTextToImg {
+object AddTextToImgByStory {
     @JvmStatic
-    fun execute(file: File, lunch: String, dinner: String, out: File, date: String) {
+    fun execute(file: File, meal: String, out: File, date: String) {
         //read the image
         val image = ImageIO.read(file)
         //get the Graphics object
         val g = image.graphics
         //set font
         val prop = Properties()
-        prop.load(File("assets/config/drawing.properties").bufferedReader())
+        prop.load(File("assets/config/story.properties").bufferedReader())
         g.color = hex2Rgb(prop["draw-color"].toString())
         g.font = getFont().deriveFont(prop["draw-font-size"].toString().toFloat())
-        lunch.split("\n").forEachIndexed { ind, str ->
+        meal.split("\n").forEachIndexed { ind, str ->
             g.drawString(str,
-                prop["lunch-x"].toString().toInt(),
-                prop["lunch-y"].toString().toInt()
+                prop["meal-x"].toString().toInt(),
+                prop["meal-y"].toString().toInt()
                         + ind * prop["draw-leading"].toString().toInt())
         }
-        dinner.split("\n").forEachIndexed { ind, str ->
-            g.drawString(str,
-                prop["dinner-x"].toString().toInt(),
-                prop["dinner-y"].toString().toInt()
-                        + ind * prop["draw-leading"].toString().toInt())
-        }
+        g.font = getFont().deriveFont(prop["date-font-size"].toString().toFloat())
         date.split("\n").forEachIndexed { ind, str ->
             g.drawString(str,
                 prop["date-x"].toString().toInt(),
                 prop["date-y"].toString().toInt()
-                        + ind * prop["draw-leading"].toString().toInt())
+                        + ind * prop["date-leading"].toString().toInt())
         }
         g.dispose()
         //write the image
@@ -50,7 +45,7 @@ object AddTextToImg {
     }
 
     fun getFont(): Font {
-        val font: Font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/font.ttf"))
+        val font: Font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/story.ttf"))
         val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         ge.registerFont(font)
         return font
@@ -60,10 +55,72 @@ object AddTextToImg {
     fun hex2Rgb(colorStr: String): Color {
         var s = colorStr
         if (!s.startsWith("#")) s = "#$colorStr"
-        return Color.getHSBColor(
-            Integer.valueOf( s.substring( 1, 3 ), 16 ).toFloat(),
-            Integer.valueOf( s.substring( 3, 5 ), 16 ).toFloat(),
-            Integer.valueOf( s.substring( 5, 7 ), 16 ).toFloat()
+        return Color(
+            Integer.parseInt(s.substring(1, 3), 16),
+            Integer.parseInt(s.substring(3, 5), 16),
+            Integer.parseInt(s.substring(5, 7), 16)
+        )
+    }
+
+}
+
+object AddTextToImgByTimeline {
+    @JvmStatic
+    fun execute(file: File, lunch: String, dinner: String, out: File, date: String) {
+        //read the image
+        val image = ImageIO.read(file)
+        //get the Graphics object
+        val g = image.graphics
+        //set font
+        val prop = Properties()
+        prop.load(File("assets/config/timeline.properties").bufferedReader())
+        g.color = hex2Rgb(prop["draw-color"].toString())
+        g.font = getFont().deriveFont(prop["draw-font-size"].toString().toFloat())
+        lunch.split("\n").forEachIndexed { ind, str ->
+            g.drawString(
+                str,
+                prop["lunch-x"].toString().toInt(),
+                prop["lunch-y"].toString().toInt()
+                        + ind * prop["draw-leading"].toString().toInt()
+            )
+        }
+        dinner.split("\n").forEachIndexed { ind, str ->
+            g.drawString(
+                str,
+                prop["dinner-x"].toString().toInt(),
+                prop["dinner-y"].toString().toInt()
+                        + ind * prop["draw-leading"].toString().toInt()
+            )
+        }
+        date.split("\n").forEachIndexed { ind, str ->
+            g.drawString(
+                str,
+                prop["date-x"].toString().toInt(),
+                prop["date-y"].toString().toInt()
+                        + ind * prop["draw-leading"].toString().toInt()
+            )
+        }
+        g.dispose()
+        //write the image
+        out.mkdirs()
+        ImageIO.write(image, "png", out)
+    }
+
+    fun getFont(): Font {
+        val font: Font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/timeline.ttf"))
+        val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        ge.registerFont(font)
+        return font
+    }
+
+    @JvmStatic
+    fun hex2Rgb(colorStr: String): Color {
+        var s = colorStr
+        if (!s.startsWith("#")) s = "#$colorStr"
+        return Color(
+            Integer.parseInt(s.substring(1, 3), 16),
+            Integer.parseInt(s.substring(3, 5), 16),
+            Integer.parseInt(s.substring(5, 7), 16)
         )
     }
 
