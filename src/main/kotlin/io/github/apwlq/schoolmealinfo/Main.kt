@@ -31,19 +31,19 @@ fun timeline() {
 //            File("assets/image/timeline_intro.jpg")
 //        )
 //    )
-    if(getBreakfast().isNullOrEmpty())
+    if(!getBreakfast().isNullOrEmpty())
         albumFiles.add(
             TimelineAction.SidecarPhoto.from(
                 genTimelineImage("오늘의 아침", getBreakfast(), getBreakfastKcal())
             )
         )
-    if(getLunch().isNullOrEmpty())
+    if(!getLunch().isNullOrEmpty())
         albumFiles.add(
             TimelineAction.SidecarPhoto.from(
                 genTimelineImage("오늘의 점심", getLunch(), getLunchKcal())
             )
         )
-    if(getDinner().isNullOrEmpty())
+    if(!getDinner().isNullOrEmpty())
         albumFiles.add(
             TimelineAction.SidecarPhoto.from(
                 genTimelineImage("오늘의 저녁", getDinner(), getDinnerKcal())

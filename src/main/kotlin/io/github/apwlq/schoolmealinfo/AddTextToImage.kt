@@ -127,7 +127,7 @@ object AddTextToImgByStory {
             prop["kcal_font_x"].toString().toInt(),
             prop["kcal_font_y"].toString().toInt())
 
-        g.drawString(kcal.substring(0,3),
+        g.drawString(kcal2.substring(0,3),
             prop["kcal_font_x2"].toString().toInt(),
             prop["kcal_font_y2"].toString().toInt())
 
