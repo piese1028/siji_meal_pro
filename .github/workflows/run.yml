@@ -24,18 +24,12 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew shadowJar
 
-      - name: Calculate SHA-256 hash of the jar
-        id: sha256
-        run: |
-          echo "SHA256=$(shasum -a 256 $(find build/libs -name '*.jar') | awk '{print $1}')" >> $GITHUB_ENV
-
       - name: release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           title: "jar archive"
           automatic_release_tag: "latest"
           repo_token: "${{ secrets.TOKEN }}"
-          body: "$(cat $GITHUB_ENV | grep SHA256)"
           files: |
             build/libs/*.jar
           prerelease: false

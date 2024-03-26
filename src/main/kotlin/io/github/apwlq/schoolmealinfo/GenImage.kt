@@ -10,17 +10,26 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
-fun genTimelineImage(lunch: String, dinner: String): File {
+fun genTimelineImage(title: String, meal: String?, kcal: String?): File? {
+    if (meal.isNullOrEmpty()) return null
     val png = File("output/timeline_dist.png")
-    AddTextToImgByTimeline.execute(File("assets/image/timeline.png"), lunch, dinner, png, date = getNowDate().split("")[1] + getNowDate().split("")[2] + getNowDate().split("")[3] + getNowDate().split("")[4] + "." + getNowDate().split("")[5] + getNowDate().split("")[6] + "." + getNowDate().split("")[7] + getNowDate().split("")[8] + ".")
+    AddTextToImgByTimeline.execute(File("assets/image/timeline.png"), title, meal, kcal, png, getNowDate("yyyy.MM.dd"))
     val jpg = File("output/timeline_dist.jpg")
     pngToJpg(png, jpg)
     return jpg
 }
 
-fun genStoryImage(meal: String): File {
+fun genStoryImage(title: String, meal: String? = "", kcal: String? = "", meal2: String? = "", kcal2: String? = ""): File? {
+    if (meal.isNullOrEmpty() || kcal.isNullOrEmpty()) return null
+    var meal2 = meal2
+    var kcal2 = kcal2
+    if (meal2.isNullOrEmpty() || kcal2.isNullOrEmpty()) {
+        meal2 = "급식이 없습니다"
+        kcal2 = "???"
+    }
+
     val png = File("output/story_dist.png")
-    AddTextToImgByStory.execute(File("assets/image/story.png"), meal, png, date = getNowDate().split("")[1] + getNowDate().split("")[2] + getNowDate().split("")[3] + getNowDate().split("")[4] + "." + getNowDate().split("")[5] + getNowDate().split("")[6] + "." + getNowDate().split("")[7] + getNowDate().split("")[8] + ".")
+    AddTextToImgByStory.execute(File("assets/image/story.png"), title, meal, kcal, png, getNowDate("yyyy.MM.dd"), meal2, kcal2)
     val jpg = File("output/story_dist.jpg")
     pngToJpg(png, jpg)
     return jpg

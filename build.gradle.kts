@@ -30,7 +30,7 @@ tasks.withType<Jar> {
 }
 
 group = "io.github.apwlq"
-version = "1.1-bsdg"
+version = "2.1-bsdg"
 
 repositories {
     mavenCentral()
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    api("io.github.leeseojune53:neis-api:1.0.3")
+//    api("io.github.leeseojune53:neis-api:1.0.3")
     api("org.slf4j:slf4j-api:1.7.36")
     api("org.slf4j:slf4j-simple:1.7.36")
     implementation("com.github.instagram4j:instagram4j:2.0.7")

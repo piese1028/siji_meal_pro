@@ -4,11 +4,11 @@ on:
   schedule:
     - cron: '0 21 * * *'
 env:
-  INSTARGRAM_USERNAME: ${{ secrets.INSTARGRAM_USERNAME }}
-  INSTARGRAM_PASSWORD: ${{ secrets.INSTARGRAM_PASSWORD }}
-#  OTP_SECRET: ${{ secrets.OTP_SECRET }}
+  INSTAGRAM_USERNAME: ${{ secrets.INSTAGRAM_USERNAME }}
+  INSTAGRAM_PASSWORD: ${{ secrets.INSTAGRAM_PASSWORD }}
+  OTP_SECRET: ${{ secrets.OTP_SECRET }}
   SCHOOL_NAME: ${{ secrets.SCHOOL_NAME }}
-  SCHOOL_REGION: ${{ secrets.SCHOOL_REGION }}
+  NEIS_API_KEY: ${{ secrets.NEIS_API_KEY }}
 jobs:
   gradle:
     runs-on: ubuntu-latest
@@ -31,4 +31,4 @@ jobs:
       - name: Run jar
         run: |
           ARTIFACT=$(find download -type f -name "**.jar")
-          java -jar $ARTIFACT
+          java -jar $ARTIFACT none
