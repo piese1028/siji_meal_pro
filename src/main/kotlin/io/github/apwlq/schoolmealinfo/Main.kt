@@ -25,32 +25,8 @@ fun main(args: Array<String>) {
 
 fun timeline() {
     val client = login()
-    val albumFiles: MutableList<TimelineAction.SidecarInfo> = mutableListOf()
-//    albumFiles.add(
-//        TimelineAction.SidecarPhoto.from(
-//            File("assets/image/timeline_intro.jpg")
-//        )
-//    )
-    if(!getBreakfast().isNullOrEmpty())
-        albumFiles.add(
-            TimelineAction.SidecarPhoto.from(
-                genTimelineImage("오늘의 아침", getBreakfast(), getBreakfastKcal())
-            )
-        )
-    if(!getLunch().isNullOrEmpty())
-        albumFiles.add(
-            TimelineAction.SidecarPhoto.from(
-                genTimelineImage("오늘의 점심", getLunch(), getLunchKcal())
-            )
-        )
-    if(!getDinner().isNullOrEmpty())
-        albumFiles.add(
-            TimelineAction.SidecarPhoto.from(
-                genTimelineImage("오늘의 저녁", getDinner(), getDinnerKcal())
-            )
-        )
-
-    client.actions().timeline().uploadAlbum(albumFiles, "${getNowDate("yyyy년 MM월 dd일")} 오늘의 급식")
+    client.actions().timeline().uploadPhoto(
+        genTimelineImage("오늘의 점심", getLunch(), getLunchKcal()), "${getNowDate("yyyy년 MM월 dd일")} ${System.getenv("SCHOOL_NAME")} 급식")
         .thenAccept {
             println("타임라인에 성공적으로 급식을 업로드했습니다!".trimIndent())
         }
@@ -59,7 +35,8 @@ fun timeline() {
 
 fun story() {
     val client = login()
-    client.actions().story().uploadPhoto(genStoryImage("오늘의 급식", getLunch(), getLunchKcal(), getDinner(), getDinnerKcal()))
+    client.actions().story().uploadPhoto(
+        genTimelineImage("오늘의 급식", getLunch(), getLunchKcal()))
         .thenAccept {
             println("스토리에 성공적으로 아침 급식을 업로드했습니다!".trimIndent())
         }

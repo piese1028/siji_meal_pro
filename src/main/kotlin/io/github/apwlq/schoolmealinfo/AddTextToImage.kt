@@ -89,21 +89,21 @@ object AddTextToImgByStory {
             g.drawString(str, x, y)
         }
 
-        g.color = hex2Rgb(prop["meal_font_color"].toString())
-        g.font = getFont("B").deriveFont(prop["meal_font_size"].toString().toFloat())
-        meal2.split("\n").forEachIndexed { ind, str ->
-            val metrics = g.fontMetrics
-            val textWidth = metrics.stringWidth(str)
-
-            val x = when (prop["meal_font_align"].toString()) {
-                "center" -> (image.width - textWidth) / 2
-                "right" -> image.width - textWidth - prop["meal_font_x2"].toString().toInt()
-                else -> prop["meal_font_x2"].toString().toInt()
-            }
-            val y = prop["meal_font_y2"].toString().toInt() + ind * prop["meal_font_leading"].toString().toInt()
-
-            g.drawString(str, x, y)
-        }
+//        g.color = hex2Rgb(prop["meal_font_color"].toString())
+//        g.font = getFont("B").deriveFont(prop["meal_font_size"].toString().toFloat())
+//        meal2.split("\n").forEachIndexed { ind, str ->
+//            val metrics = g.fontMetrics
+//            val textWidth = metrics.stringWidth(str)
+//
+//            val x = when (prop["meal_font_align"].toString()) {
+//                "center" -> (image.width - textWidth) / 2
+//                "right" -> image.width - textWidth - prop["meal_font_x2"].toString().toInt()
+//                else -> prop["meal_font_x2"].toString().toInt()
+//            }
+//            val y = prop["meal_font_y2"].toString().toInt() + ind * prop["meal_font_leading"].toString().toInt()
+//
+//            g.drawString(str, x, y)
+//        }
 
         g.color = hex2Rgb(prop["school_font_color"].toString())
         g.font = getFont("B").deriveFont(prop["school_font_size"].toString().toFloat())
@@ -127,9 +127,9 @@ object AddTextToImgByStory {
             prop["kcal_font_x"].toString().toInt(),
             prop["kcal_font_y"].toString().toInt())
 
-        g.drawString(kcal2.substring(0,3),
-            prop["kcal_font_x2"].toString().toInt(),
-            prop["kcal_font_y2"].toString().toInt())
+//        g.drawString(kcal2.substring(0,3),
+//            prop["kcal_font_x2"].toString().toInt(),
+//            prop["kcal_font_y2"].toString().toInt())
 
         g.color = hex2Rgb(prop["date_font_color"].toString())
         g.font = getFont("B").deriveFont(prop["date_font_size"].toString().toFloat())
