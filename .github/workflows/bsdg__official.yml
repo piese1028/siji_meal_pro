@@ -11,11 +11,7 @@ env:
   NEIS_API_KEY: ${{ secrets.NEIS_API_KEY }}
 jobs:
   gradle:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    # runs-on: ${{ matrix.os }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
