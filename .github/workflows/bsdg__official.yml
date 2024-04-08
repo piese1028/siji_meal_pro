@@ -1,8 +1,8 @@
 name: Official Insta Uploader
 on:
   workflow_dispatch:
-  #schedule:
-    #- cron: '0 21 * * *'
+  schedule:
+    - cron: '0 21 * * *'
 env:
   INSTAGRAM_USERNAME: ${{ secrets.INSTAGRAM_USERNAME2 }}
   INSTAGRAM_PASSWORD: ${{ secrets.INSTAGRAM_PASSWORD2 }}
@@ -11,11 +11,7 @@ env:
   NEIS_API_KEY: ${{ secrets.NEIS_API_KEY }}
 jobs:
   gradle:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    # runs-on: ${{ matrix.os }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
