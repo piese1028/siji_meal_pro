@@ -25,7 +25,7 @@ fun genStoryImage(title: String, meal: String? = "", kcal: String? = "", meal2: 
     var kcal2 = kcal2
     if (meal2.isNullOrEmpty() || kcal2.isNullOrEmpty()) {
         meal2 = "급식이 없습니다"
-        kcal2 = "???"
+        kcal2 = "000"
     }
 
     val png = File("output/story_dist.png")

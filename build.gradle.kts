@@ -1,8 +1,3 @@
-/*
- * @author Bruce0203, apwlq
- * @license MIT License
- */
-
 val kotlin_version = "1.9.0"
 buildscript {
     repositories {
