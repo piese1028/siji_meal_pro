@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
 fun timeline() {
     val client = login()
     client.actions().timeline().uploadPhoto(
-        genTimelineImage("오늘의 점심", getLunch(), getLunchKcal()), "${getNowDate("yyyy년 MM월 dd일")} ${System.getenv("SCHOOL_NAME")} 급식")
+        genTimelineImage("오늘의 급식", getLunch(), getLunchKcal()), "${getNowDate("yyyy년 MM월 dd일")} ${System.getenv("SCHOOL_NAME")} 급식")
         .thenAccept {
             println("타임라인에 성공적으로 급식을 업로드했습니다!".trimIndent())
         }
@@ -36,7 +36,7 @@ fun timeline() {
 fun story() {
     val client = login()
     client.actions().story().uploadPhoto(
-        genTimelineImage("오늘의 급식", getLunch(), getLunchKcal()))
+        genStoryImage("오늘의 급식", getLunch(), getLunchKcal(), "", ""))
         .thenAccept {
             println("스토리에 성공적으로 아침 급식을 업로드했습니다!".trimIndent())
         }
