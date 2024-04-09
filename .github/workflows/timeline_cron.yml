@@ -1,8 +1,8 @@
-name: Insta Uploader
-#on:
-#  workflow_dispatch:
-#  schedule:
-#    - cron: '0 21 * * *'
+name: Insta Timeline Uploader
+on:
+ workflow_dispatch:
+ schedule:
+   - cron: '15 0 * * *'
 env:
   INSTAGRAM_USERNAME: ${{ secrets.INSTAGRAM_USERNAME }}
   INSTAGRAM_PASSWORD: ${{ secrets.INSTAGRAM_PASSWORD }}
@@ -31,4 +31,4 @@ jobs:
       - name: Run jar
         run: |
           ARTIFACT=$(find download -type f -name "**.jar")
-          java -jar $ARTIFACT none
+          java -jar $ARTIFACT timeline
