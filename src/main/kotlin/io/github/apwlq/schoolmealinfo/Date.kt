@@ -54,6 +54,7 @@ class Date private constructor(private val data: ByteArray) {
 data class Timestamp(val seconds: Long, val nanos: Long)
 
 fun getNowDate(setFormatter: String = "yyyyMMdd"): String {
+    return "20240409"
     val localSeoulTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern(setFormatter))
     try {
         val seoulZoneId = ZoneId.of("Asia/Seoul")
