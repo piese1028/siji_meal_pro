@@ -2,7 +2,7 @@ name: Insta Timeline Uploader
 on:
  workflow_dispatch:
  schedule:
-   - cron: '15 0 * * *'
+   - cron: '01 15 * * *'
 env:
   INSTAGRAM_USERNAME: ${{ secrets.INSTAGRAM_USERNAME }}
   INSTAGRAM_PASSWORD: ${{ secrets.INSTAGRAM_PASSWORD }}
