@@ -16,7 +16,7 @@ fun getFont(name: String): Font {
     val font: Font
     when (name) {
         "J" -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/CookieRun.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/JalnanGothicTTF.ttf"))
         }
         "EB" -> {
             font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/THEBongsoonaEB.ttf"))
