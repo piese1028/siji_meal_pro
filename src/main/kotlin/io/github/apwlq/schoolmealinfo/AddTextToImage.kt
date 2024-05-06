@@ -16,19 +16,19 @@ fun getFont(name: String): Font {
     val font: Font
     when (name) {
         "J" -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/JalnanGothicTTF.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/CookieRun.ttf"))
         }
         "EB" -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/NanumSquareEB.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/THEBongsoonaEB.ttf"))
         }
         "B" -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/NanumSquareB.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/THEBongsoonaB.ttf"))
         }
         "L" -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/NanumSquareL.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/THEBongsoonaL.ttf"))
         }
         else -> {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/NanumSquareR.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("assets/font/THEBongsoonaR.ttf"))
         }
     }
     val ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
