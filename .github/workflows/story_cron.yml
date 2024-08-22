@@ -2,7 +2,7 @@ name: Insta Story Uploader
 on:
  workflow_dispatch:
  schedule:
-   - cron: '35 1 * * *'
+   - cron: '0 1 * * *'
 env:
   INSTAGRAM_USERNAME: ${{ secrets.INSTAGRAM_USERNAME }}
   INSTAGRAM_PASSWORD: ${{ secrets.INSTAGRAM_PASSWORD }}
